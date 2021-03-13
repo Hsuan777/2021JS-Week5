@@ -4,10 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/all.css">
-  <title>Document</title>
+  <title>Let's Travel!</title>
 </head>
 <body>
-  <h1>Hello!</h1>
+  <h1 class="text-center text-primary my-3">Hex Travel</h1>
+  <!-- 新增套票資訊 -->
+  <section class="container mb-5">
+    <div class="row">
+      <div class="col-8 mx-auto">
+        <div class="row row-cols-2 g-3">
+          <div class="col">
+            <img src="img/iRssPpJ.png" alt="">
+            <img src="img/vJt0znH.png" alt="">
+          </div>
+          <!-- 輸入套票資訊 -->
+          <div class="col">
+            <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-3">新增套票名稱</h3>
+            <form class="text-primary">
+              <!-- 套票名稱 -->
+              <div class="row mb-3">
+                <label for="ticketName" class="col-sm-3 col-form-label h4">套票名稱</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ticketName" placeholder="請填寫套票名稱">
+                </div>
+              </div>
+              <!-- 圖片網址 -->
+              <div class="row mb-3">
+                <label for="ticketImgUrl" class="col-sm-3 col-form-label h4">圖片網址</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ticketImgUrl" placeholder="請填寫圖片網址">
+                </div>
+              </div>
+              <!-- 景點地區 -->
+              <div class="row mb-3">
+                <label for="ticketRegion" class="col-sm-3 col-form-label h4">景點地區</label>
+                <div class="col-sm-9">
+                  <select name="" id="ticketRegion" class="form-select">
+                    <option value="">請選擇景點地區</option>
+                    <option value="台中">台中</option>
+                    <option value="台中">台中</option>
+                    <option value="台中">台中</option>
+                  </select>
+                </div>
+              </div>
+              <!-- 套票金額 -->
+              <div class="row mb-3">
+                <label for="ticketPrice" class="col-sm-3 col-form-label h4">套票金額</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" id="ticketPrice" placeholder="請填寫套票金額">
+                </div>
+              </div>
+              <!-- 套票組數 -->
+              <div class="row mb-3">
+                <label for="ticketNum" class="col-sm-3 col-form-label h4">套票組數</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" id="ticketNum" placeholder="請填寫套票組數">
+                </div>
+              </div>
+              <!-- 套票星級 -->
+              <div class="row mb-3">
+                <label for="ticketRate" class="col-sm-3 col-form-label h4">套票星級</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" id="ticketRate" min="1" max="10" placeholder="請填寫套票星級">
+                </div>
+              </div>
+              <!-- 套票描述 -->
+              <div class="row mb-3">
+                <label for="ticketDescription" class="col-sm-3 col-form-label h4">套票描述</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="ticketDescription" row="5" placeholder="請填寫套票描述 (限100字)"></textarea>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <input type="submit" value="新增套票" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 搜尋套票資訊 -->
+  <div class="bg-light">
+    <section class="container py-3">
+      <!-- 選擇地區 -->
+      <div class="row">
+        <div class="col-sm-4">
+          <select name="" id="" class="form-select me-3">
+            <option value="123">All</option>
+            <option value="123">台北</option>
+            <option value="123">台中</option>
+            <option value="123">高雄</option>
+          </select>
+        </div>
+        <div class="col mb-5">
+          <p class="col-sm-4 col-form-label">本次搜尋共 ？ 筆資料</p>
+        </div>
+      </div>
+      <!-- 套票列表 -->
+      <div class="row row-cols-3 g-3">
+        <div class="col">
+          <div class="card border-0">
+            <div class="position-relative mb-3">
+              <a href="">
+                <img src="https://i.imgur.com/QXa1fMZ.png" class="card-img-top" alt="...">
+              </a>
+              <p class="position-absolute top-0 start-0 translate-middle-y bg-secondary rounded-end p-3 text-white">高雄</p>
+              <p class="position-absolute top-100 start-0 translate-middle-y bg-primary rounded-end py-2 px-3 mb-0 text-white">9</p>
+            </div>
+            <div class="card-body">
+              <a href="" class="text-decoration-none text-primary">
+                <h5 class="card-title border-bottom border-primary border-2 pb-2">Card title</h5>
+              </a>
+              <p class="card-text text-info">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="d-flex justify-content-between align-items-center text-primary">
+                <p class="mb-0 fw-bolder">剩下最後 87 組</p>
+                <p class="mb-0 d-flex align-items-center">TWD<span class="h2 ms-3 mb-0"> $ 1400</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
   <script src="js/all.js"></script>
 </body>
 </html>
