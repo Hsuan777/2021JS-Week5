@@ -1,4 +1,4 @@
-// 套票資料
+// 預設套票資料
 let originData = [
   {
     "id": 0,
@@ -36,7 +36,7 @@ let originData = [
 let ticketList = document.querySelector('.js-ticketList');
 let searchResult = document.querySelector('.js-searchResult');
 let ticketArea = document.querySelector('.js-ticketArea');
-
+let formData = document.querySelector('.js-addNewData');
 
 /*** 函式處理 ***/
 // 套票資料顯示
@@ -82,9 +82,8 @@ function printAreaList() {
     `
     ticketAreaStr += areaStr
   })
-  ticketArea.innerHTML = `<option value="All">所有地區</option>` + ticketAreaStr 
+  ticketArea.innerHTML = `<option value="" disabled selected hidden>地區搜尋</option><option value="All">所有地區</option>` + ticketAreaStr 
 }
-
 // 搜尋結果
 function search(areaName){
   let searchData = []
@@ -99,8 +98,36 @@ function search(areaName){
   }
   printTicketList(searchData)
 }
+// 新增套票
+function addNewData(addData) {
+  let newData = Object.assign({}, originData[0])
+  newData.id = originData.length
+  newData.name = addData.target[0].value 
+  newData.imgUrl = addData.target[1].value || "https://images.unsplash.com/photo-1522383225653-ed111181a951?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1655&q=80"
+  newData.area = addData.target[2].value
+  newData.price = addData.target[3].value
+  newData.group = addData.target[4].value
+  newData.rate = addData.target[5].value
+  newData.description = addData.target[6].value
+  originData.push(newData)
+  printTicketList(originData)
+  console.log(addData.target[7]);
+  Array.from(addData.target).forEach(item => {
+    if (item.value === '新增套票'){
+      item.value = '新增套票'
+    } else {
+      item.value = ''
+    }
+  })
+}
+// 預設執行
 printAreaList()
 printTicketList(originData)
+// 監聽事件
 ticketArea.addEventListener('change', (Event) => {
   search(Event)
+})
+formData.addEventListener('submit', (Event) => {
+  Event.preventDefault()
+  addNewData(Event)
 })

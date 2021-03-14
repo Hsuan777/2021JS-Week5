@@ -20,7 +20,7 @@
           <!-- 輸入套票資訊 -->
           <div class="col">
             <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-3">新增套票名稱</h3>
-            <form class="text-primary">
+            <form class="js-addNewData text-primary">
               <!-- 套票名稱 -->
               <div class="row mb-3">
                 <label for="ticketName" class="col-sm-3 col-form-label h4">套票名稱</label>
@@ -40,10 +40,10 @@
                 <label for="ticketRegion" class="col-sm-3 col-form-label h4">景點地區</label>
                 <div class="col-sm-9">
                   <select name="" id="ticketRegion" class="form-select">
-                    <option value="">請選擇景點地區</option>
+                    <option value="" disabled selected hidden>請選擇景點地區</option>
+                    <option value="台北">台北</option>
                     <option value="台中">台中</option>
-                    <option value="台中">台中</option>
-                    <option value="台中">台中</option>
+                    <option value="高雄">高雄</option>
                   </select>
                 </div>
               </div>
@@ -99,7 +99,7 @@
         </div>
       </div>
       <!-- 套票列表 -->
-      <ul class="js-ticketList list-unstyled row row-cols-3 g-3">
+      <ul class="js-ticketList list-unstyled row row-cols-3 g-5">
         <!-- <li class="col">
           <div class="card border-0">
             <div class="position-relative mb-3">
