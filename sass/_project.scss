@@ -10,7 +10,7 @@ a {
 }
 
 .custom {
-  &__img {
+  &__ticketImg {
     a {
       // a 為行內屬型
       display: block;
@@ -23,5 +23,11 @@ a {
         transform: scale(1.3);
       }
     }
+  }
+  &__ticketInput {
+    border-top:0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px map-get($theme-colors, "primary") solid;
   }
 }

@@ -76,7 +76,7 @@ function printTicketList(data){
     let str = `
     <li class="col">
         <div class="card border-0 h-100">
-          <div class="custom__img position-relative mb-3">
+          <div class="custom__ticketImg position-relative mb-3">
             <a href="">
               <img src="${item.imgUrl}" class="card-img-top" alt="...">
             </a>
