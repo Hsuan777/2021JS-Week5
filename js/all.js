@@ -29,7 +29,37 @@ let originData = [
     "group": 20,
     "price": 1765,
     "rate": 7
-  }
+  },
+  {
+    "id": 3,
+    "name": "山林悠遊雙人套票",
+    "imgUrl": "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd",
+    "area": "台中",
+    "description": "山林悠遊套票，結合南投清境高空步道、雙龍瀑布七彩吊橋、瑞龍瀑布園區之熱門景點，帶您飽覽南投瑰麗的自然環境，體驗變化無窮的地形景觀，喜歡挑戰高空的您一定不可錯過。 （含雙龍瀑布入場券 x2）",
+    "group": 20,
+    "price": 880,
+    "rate": 9.3
+  },
+  {
+    "id": 4,
+    "name": "漁樂碼頭釣魚體驗套票",
+    "imgUrl": "https://images.unsplash.com/photo-1490556505947-f833c3a09659",
+    "area": "台中",
+    "description": "台中全新親子景點寶熊漁樂碼頭，為知名釣具公司「OKUMA」所創立的觀光工廠。一樓藍白希臘漁村風商店街免費參觀。二樓釣魚故事館則設立全台唯一虛擬釣場，透過導覽讓你知道如何釣魚、魚餌怎麼區分，寓教於樂的台中景點！",
+    "group": 5,
+    "price": 1280,
+    "rate": 8.2
+  },
+  {
+    "id": 5,
+    "name": "熊森公園親子二日遊套票",
+    "imgUrl": "https://images.unsplash.com/photo-1535726858289-9ffe2dff6f52",
+    "area": "高雄",
+    "description": "來自日本最受歡迎的兒童遊樂園《 BearSon Park 熊森公園》於全世界有800多家據點，在全世界、日本及台灣，很多小孩的童年都在遊戲愛樂園裡一同成長，提供兒童一個最富教育性及娛樂性的休憩遊樂天地！",
+    "group": 3,
+    "price": 2480,
+    "rate": 8.6
+  },
 ];
 
 /*** DOM 與預設變數 ***/
@@ -46,7 +76,7 @@ function printTicketList(data){
     let str = `
     <li class="col">
         <div class="card border-0 h-100">
-          <div class="position-relative mb-3">
+          <div class="custom__img position-relative mb-3">
             <a href="">
               <img src="${item.imgUrl}" class="card-img-top" alt="...">
             </a>
@@ -55,14 +85,14 @@ function printTicketList(data){
           </div>
           <div class="card-body d-flex flex-column justify-content-between">
             <div>
-            <a href="" class="text-decoration-none text-primary">
-              <h5 class="card-title border-bottom border-primary border-2 pb-2">${item.name}</h5>
+            <a href="#" class="text-decoration-none">
+              <h5 class="card-title border-bottom border-primary border-2 fw-bolder pb-2">${item.name}</h5>
             </a>
-            <p class="card-text text-info">${item.description}</p>
+            <p class="card-text text-info mb-3">${item.description}</p>
             </div>
             <div class="d-flex justify-content-between align-items-center text-primary">
-              <p class="mb-0 fw-bolder">剩下最後 ${item.group} 組</p>
-              <p class="mb-0 d-flex align-items-center">TWD<span class="h2 ms-3 mb-0"> $ ${item.price}</span></p>
+              <p class="mb-0 fw-bolder"><span><i class="fas fa-exclamation-circle me-2"></i></span>剩下最後 ${item.group} 組</p>
+              <p class="mb-0 d-flex align-items-center">TWD<span class="h2 ms-3 mb-0"> $ ${formatPrice(item.price.toString())}</span></p>
             </div>
           </div>
       </div>
@@ -76,12 +106,19 @@ function printTicketList(data){
 // 列出地區選擇
 function printAreaList() {
   let ticketAreaStr = ''
+  let areaArray = []
   originData.forEach(item => {
+    if (areaArray.indexOf(item.area) === -1) {
+      areaArray.push(item.area)
+    }
+  })
+  areaArray.forEach(item => {
     let areaStr = `
-      <option value="${item.area}">${item.area}</option>
+      <option value="${item}">${item}</option>
     `
     ticketAreaStr += areaStr
   })
+  console.log(areaArray)
   ticketArea.innerHTML = `<option value="" disabled selected hidden>地區搜尋</option><option value="All">所有地區</option>` + ticketAreaStr 
 }
 // 搜尋結果
@@ -103,7 +140,7 @@ function addNewData(addData) {
   let newData = Object.assign({}, originData[0])
   newData.id = originData.length
   newData.name = addData.target[0].value 
-  newData.imgUrl = addData.target[1].value || "https://images.unsplash.com/photo-1522383225653-ed111181a951?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1655&q=80"
+  newData.imgUrl = addData.target[1].value
   newData.area = addData.target[2].value
   newData.price = addData.target[3].value
   newData.group = addData.target[4].value
@@ -119,6 +156,10 @@ function addNewData(addData) {
       item.value = ''
     }
   })
+}
+// 數字格式化為千分位
+function formatPrice(num) {
+  return num.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
 }
 // 預設執行
 printAreaList()

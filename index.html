@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/all.css">
   <title>Let's Travel!</title>
 </head>
@@ -19,7 +24,7 @@
           </div>
           <!-- 輸入套票資訊 -->
           <div class="col">
-            <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-3">新增套票資訊</h3>
+            <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-3"><span><i class="fas fa-plus-circle"></i></span> 新增旅遊套票</h3>
             <form class="js-addNewData text-primary">
               <!-- 套票名稱 -->
               <div class="row mb-3">
@@ -72,7 +77,7 @@
               <div class="row mb-3">
                 <label for="ticketDescription" class="col-sm-3 col-form-label h4">套票描述</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" id="ticketDescription" row="5" placeholder="請填寫套票描述 (限100字)"></textarea>
+                  <textarea class="form-control" id="ticketDescription" row="5" minlength="10" maxlength="100" placeholder="請填寫套票描述 (限100字)" required></textarea>
                 </div>
               </div>
               <div class="d-flex justify-content-end">
