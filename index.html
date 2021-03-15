@@ -12,13 +12,13 @@
   <title>Let's Travel!</title>
 </head>
 <body>
-  <h1 class="text-center text-primary my-3">Hex Travel</h1>
+  <h1 class="text-center text-primary fw-bolder my-3">- Hex Travel -</h1>
   <!-- 新增套票資訊 -->
   <section class="container mb-5">
     <div class="row">
-      <div class="col-8 mx-auto">
-        <div class="row row-cols-2 g-3">
-          <div class="col">
+      <div class="col col-lg-8 mx-auto">
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+          <div class="col d-none d-md-block">
             <img src="img/iRssPpJ.png" alt="">
             <img src="img/vJt0znH.png" alt="">
           </div>
@@ -28,21 +28,21 @@
             <form class="js-addNewData text-primary">
               <!-- 套票名稱 -->
               <div class="row mb-3">
-                <label for="ticketName" class="col-sm-3 col-form-label h4">套票名稱</label>
+                <label for="ticketName" class="col-sm-3 col-form-label h4 fw-bolder">套票名稱</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="ticketName" placeholder="請填寫套票名稱" required>
                 </div>
               </div>
               <!-- 圖片網址 -->
               <div class="row mb-3">
-                <label for="ticketImgUrl" class="col-sm-3 col-form-label h4">圖片網址</label>
+                <label for="ticketImgUrl" class="col-sm-3 col-form-label h4 fw-bolder">圖片網址</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="ticketImgUrl" placeholder="請填寫圖片網址" required>
                 </div>
               </div>
               <!-- 景點地區 -->
               <div class="row mb-3">
-                <label for="ticketRegion" class="col-sm-3 col-form-label h4">景點地區</label>
+                <label for="ticketRegion" class="col-sm-3 col-form-label h4 fw-bolder">景點地區</label>
                 <div class="col-sm-9">
                   <select name="" id="ticketRegion" class="form-select" required>
                     <option value="" disabled selected hidden>請選擇景點地區</option>
@@ -54,28 +54,28 @@
               </div>
               <!-- 套票金額 -->
               <div class="row mb-3">
-                <label for="ticketPrice" class="col-sm-3 col-form-label h4">套票金額</label>
+                <label for="ticketPrice" class="col-sm-3 col-form-label h4 fw-bolder">套票金額</label>
                 <div class="col-sm-9">
                   <input type="number" class="form-control" id="ticketPrice" placeholder="請填寫套票金額" min="0" max="99999" required>
                 </div>
               </div>
               <!-- 套票組數 -->
               <div class="row mb-3">
-                <label for="ticketNum" class="col-sm-3 col-form-label h4">套票組數</label>
+                <label for="ticketNum" class="col-sm-3 col-form-label h4 fw-bolder">套票組數</label>
                 <div class="col-sm-9">
                   <input type="number" class="form-control" id="ticketNum" placeholder="請填寫套票組數" min="1" max="999" required>
                 </div>
               </div>
               <!-- 套票星級 -->
               <div class="row mb-3">
-                <label for="ticketRate" class="col-sm-3 col-form-label h4">套票星級</label>
+                <label for="ticketRate" class="col-sm-3 col-form-label h4 fw-bolder">套票星級</label>
                 <div class="col-sm-9">
                   <input type="number" class="form-control" id="ticketRate" min="1" max="10" placeholder="請填寫套票星級" required>
                 </div>
               </div>
               <!-- 套票描述 -->
               <div class="row mb-3">
-                <label for="ticketDescription" class="col-sm-3 col-form-label h4">套票描述</label>
+                <label for="ticketDescription" class="col-sm-3 col-form-label h4 fw-bolder">套票描述</label>
                 <div class="col-sm-9">
                   <textarea class="form-control" id="ticketDescription" row="5" minlength="10" maxlength="100" placeholder="請填寫套票描述 (限100字)" required></textarea>
                 </div>
@@ -94,17 +94,17 @@
     <section class="container py-3">
       <!-- 選擇地區 -->
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col col-sm-4">
           <select name="" id="" class="js-ticketArea form-select me-3">
            
           </select>
         </div>
-        <div class="col mb-5">
+        <div class="col col-sm-8 mb-5">
           <p class="js-searchResult col-sm-4 col-form-label">本次搜尋共 ？ 筆資料</p>
         </div>
       </div>
       <!-- 套票列表 -->
-      <ul class="js-ticketList list-unstyled row row-cols-3 g-5">
+      <ul class="js-ticketList list-unstyled row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
         <!-- <li class="col">
           <div class="card border-0">
             <div class="position-relative mb-3">

@@ -9886,6 +9886,7 @@ fieldset:disabled .btn {
 
 body {
   font-family: 'Noto Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 a {
