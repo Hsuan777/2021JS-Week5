@@ -71,7 +71,7 @@ let formData = document.querySelector('.js-addNewData');
 /*** 函式處理 ***/
 // 套票資料顯示
 function printTicketList(data){
-  let ticketItemStr = ''
+  let ticketItemStr = '';
   data.forEach(item => {
     let str = `
     <li class="col">
@@ -97,78 +97,78 @@ function printTicketList(data){
           </div>
       </div>
     </li>
-    `
-    ticketItemStr += str
+    `;
+    ticketItemStr += str;
   })
-  searchResult.textContent = `本次搜尋共 ${data.length} 筆資料`
-  ticketList.innerHTML = ticketItemStr
+  searchResult.textContent = `本次搜尋共 ${data.length} 筆資料`;
+  ticketList.innerHTML = ticketItemStr;
 }
 // 列出地區選擇
 function printAreaList() {
-  let ticketAreaStr = ''
-  let areaArray = []
+  let ticketAreaStr = '';
+  let areaArray = [];
   originData.forEach(item => {
     if (areaArray.indexOf(item.area) === -1) {
-      areaArray.push(item.area)
+      areaArray.push(item.area);
     }
   })
   areaArray.forEach(item => {
     let areaStr = `
       <option value="${item}">${item}</option>
-    `
-    ticketAreaStr += areaStr
+    `;
+    ticketAreaStr += areaStr;
   })
   console.log(areaArray)
-  ticketArea.innerHTML = `<option value="" disabled selected hidden>地區搜尋</option><option value="All">所有地區</option>` + ticketAreaStr 
+  ticketArea.innerHTML = `<option value="" disabled selected hidden>地區搜尋</option><option value="All">所有地區</option>` + ticketAreaStr ;
 }
 // 搜尋結果
 function search(areaName){
-  let searchData = []
+  let searchData = [];
   if (areaName.target.value === "All"){
-    searchData = originData
+    searchData = originData;
   } else {
     originData.forEach(item => {
       if (item.area === areaName.target.value){
-        searchData.push(item)
+        searchData.push(item);
       }
     })
   }
-  printTicketList(searchData)
+  printTicketList(searchData);
 }
 // 新增套票
 function addNewData(addData) {
-  let newData = Object.assign({}, originData[0])
-  newData.id = originData.length
-  newData.name = addData.target[0].value 
-  newData.imgUrl = addData.target[1].value
-  newData.area = addData.target[2].value
-  newData.price = addData.target[3].value
-  newData.group = addData.target[4].value
-  newData.rate = addData.target[5].value
-  newData.description = addData.target[6].value
-  originData.push(newData)
-  printTicketList(originData)
+  let newData = Object.assign({}, originData[0]);
+  newData.id = originData.length;
+  newData.name = addData.target[0].value;
+  newData.imgUrl = addData.target[1].value;
+  newData.area = addData.target[2].value;
+  newData.price = addData.target[3].value;
+  newData.group = addData.target[4].value;
+  newData.rate = addData.target[5].value;
+  newData.description = addData.target[6].value;
+  originData.push(newData);
+  printTicketList(originData);
   console.log(addData.target[7]);
   Array.from(addData.target).forEach(item => {
     if (item.value === '新增套票'){
-      item.value = '新增套票'
+      item.value = '新增套票';
     } else {
-      item.value = ''
+      item.value = '';
     }
   })
 }
 // 數字格式化為千分位
 function formatPrice(num) {
-  return num.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  return num.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 // 預設執行
-printAreaList()
-printTicketList(originData)
+printAreaList();
+printTicketList(originData);
 // 監聽事件
 ticketArea.addEventListener('change', (Event) => {
-  search(Event)
+  search(Event);
 })
 formData.addEventListener('submit', (Event) => {
-  Event.preventDefault()
-  addNewData(Event)
+  Event.preventDefault();
+  addNewData(Event);
 })
