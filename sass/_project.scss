@@ -10,6 +10,9 @@ a {
 }
 
 .custom {
+  &__ticketForm {
+    box-shadow: 0px 3px 6px #00000029;
+  }
   &__ticketImg {
     a {
       // a 為行內屬型

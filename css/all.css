@@ -9897,6 +9897,10 @@ a:hover {
   color: #64C3BF;
 }
 
+.custom__ticketForm {
+  box-shadow: 0px 3px 6px #00000029;
+}
+
 .custom__ticketImg a {
   display: block;
   overflow: hidden;
