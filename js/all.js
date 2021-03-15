@@ -107,6 +107,7 @@ function printTicketList(data){
 function printAreaList() {
   let ticketAreaStr = '';
   let areaArray = [];
+  // 讓地區資料不重複
   originData.forEach(item => {
     if (areaArray.indexOf(item.area) === -1) {
       areaArray.push(item.area);
@@ -137,7 +138,7 @@ function search(areaName){
 }
 // 新增套票
 function addNewData(addData) {
-  let newData = Object.assign({}, originData[0]);
+  let newData = {};
   newData.id = originData.length;
   newData.name = addData.target[0].value;
   newData.imgUrl = addData.target[1].value;
@@ -148,7 +149,6 @@ function addNewData(addData) {
   newData.description = addData.target[6].value;
   originData.push(newData);
   printTicketList(originData);
-  console.log(addData.target[7]);
   Array.from(addData.target).forEach(item => {
     if (item.value === '新增套票'){
       item.value = '新增套票';
